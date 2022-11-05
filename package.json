@@ -14,6 +14,23 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "test",
+          "title": "local-bucket",
+          "icon": "assets/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "test",
+          "name": "test"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "local-bucket.helloWorld",
