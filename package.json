@@ -17,17 +17,17 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "test",
-          "title": "local-bucket",
-          "icon": "assets/icon.svg"
+          "id": "ice-local-bucket",
+          "title": "Local Bucket",
+          "icon": "resources/icon.svg"
         }
       ]
     },
     "views": {
-      "explorer": [
+      "ice-local-bucket": [
         {
-          "id": "test",
-          "name": "test"
+          "id": "ice-buckets",
+          "name": "Buckets"
         }
       ]
     },
