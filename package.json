@@ -10,33 +10,51 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:local-bucket.helloWorld"
+    "onView:fileExplorer"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "ice-local-bucket",
+          "id": "localBucket",
           "title": "Local Bucket",
           "icon": "resources/icon.svg"
         }
       ]
     },
     "views": {
-      "ice-local-bucket": [
+      "localBucket": [
         {
-          "id": "ice-buckets",
-          "name": "Buckets"
+          "id": "fileExplorer",
+          "name": "File Explorer"
         }
       ]
     },
     "commands": [
       {
-        "command": "local-bucket.helloWorld",
-        "title": "Hello World"
+        "command": "fileExplorer.refreshFile",
+        "title": "Refresh",
+        "icon": {
+          "light": "resources/light/refresh.svg",
+          "dark": "resources/dark/refresh.svg"
+        }
+      },
+      {
+        "command": "fileExplorer.openFile",
+        "title": "Open File"
       }
-    ]
+    ],
+    "menus": {
+      "view/title": [],
+      "view/item/context": [
+        {
+          "command": "fileExplorer.refreshFile",
+          "when": "view == fileExplorer && viewItem == file",
+          "group": "inline"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",
@@ -67,6 +85,10 @@
     "webpack-cli": "^5.0.0"
   },
   "dependencies": {
-    "fs-extra": "^10.1.0"
+    "@types/mkdirp": "^1.0.2",
+    "@types/rimraf": "^3.0.2",
+    "fs-extra": "^10.1.0",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2"
   }
 }
